@@ -1,0 +1,38 @@
+Инициализирайте проект от https://start.spring.io/
+
+Ползвайте следните зависимости:
+ -MySQL
+ -Spring Data
+ -Lombok
+ -Validation
+ -Web
+
+ Направете 2 entity класа, User и Address
+  User:
+  -id  
+  -first name
+  -last name
+  -phone number
+  -email
+  -createdAt Полето трябва да бъде тип Instant
+  (намерете в google какво е Instant и как да вземете "сега" от този тип,
+   това ще ви трябва когато ще създавате инстанция на User, тук -> user.setCreatedAt(<вземане на часа>))
+
+   Address:
+   -id  
+   -country
+   -city
+   -street 
+   -street number
+
+   Направете репозиторита на двата класа.
+   Настройте в application resources връзката към DB то, която е на вашия компютър.
+   Ползвайки CommandLineRunner-a запишете 2 user-a и 2 address-a в базата данни.
+   Направете скрийншот на EER диаграмата от workbench-a. Трябва да имате две отделни таблици, без релации.
+   Убедете се че и двете таблици имат обектите които добавихте в CommandLineRunner-a.
+   Скрийншота го сложете в папката с проекта.
+   !!!Преди да качите проекта в github, ако паролата която ползвате за db я ползвате някъде другате премахнете я от application.yml/properties
+   Качете всичко в github commit message-a трябва да бъде "Init commit" всичко трябва да бъде в branch main или master,
+    в репозитори което ще направите в АacademyCourse организацията.
+   
+   След като качите всичко, прикачете в платформата на АdvanceAcademy линка към проекта.

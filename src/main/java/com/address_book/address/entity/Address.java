@@ -22,6 +22,4 @@ public class Address {
     @Column (name = "street_number")
     private int streetNumber;
 
-    @ManyToOne
-    private User user;
 }

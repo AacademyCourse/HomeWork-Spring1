@@ -14,6 +14,7 @@ import java.time.Instant;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "user_id")
     private Long id;
     @Column (name = "first_name")
     private String firstName;
@@ -25,4 +26,5 @@ public class User {
     private String email;
     @Column (name = "created_at")
     private Instant createdAt;
+
 }

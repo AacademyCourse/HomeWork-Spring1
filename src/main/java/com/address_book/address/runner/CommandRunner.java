@@ -3,7 +3,7 @@ package com.address_book.address.runner;
 import com.address_book.address.entity.Address;
 import com.address_book.address.entity.User;
 import com.address_book.address.repository.AddressRepository;
-import com.address_book.address.repository.UserRepository;
+import com.address_book.address.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -15,9 +15,9 @@ import java.util.List;
 @Component
 public class CommandRunner implements CommandLineRunner {
     @Autowired
-    UserRepository userRepository;
+    private UserService userService;
     @Autowired
-    AddressRepository addressRepository;
+    private AddressRepository addressRepository;
     @Override
     public void run(String... args) throws Exception {
         createUsers();
@@ -30,6 +30,7 @@ public class CommandRunner implements CommandLineRunner {
         dimitar.setPhoneNumber("0879385550");
         dimitar.setEmail("dreindead@abv.bg");
         dimitar.setCreatedAt(Instant.now(Clock.systemUTC()));
+        userService.addUser(dimitar);
 
         User ivan = new User();
         ivan.setFirstName("Ivan");
@@ -37,6 +38,7 @@ public class CommandRunner implements CommandLineRunner {
         ivan.setPhoneNumber("08777777777");
         ivan.setEmail("abv@abv.bg");
         ivan.setCreatedAt(Instant.now(Clock.systemUTC()));
+        userService.addUser(ivan);
 
         User petar = new User();
         petar.setFirstName("Petar");
@@ -44,6 +46,7 @@ public class CommandRunner implements CommandLineRunner {
         petar.setPhoneNumber("0888888888");
         petar.setEmail("bv@abv.bg");
         petar.setCreatedAt(Instant.now(Clock.systemUTC()));
+        userService.addUser(petar);
 
         User mladen = new User();
         mladen.setFirstName("Mladen");
@@ -51,8 +54,7 @@ public class CommandRunner implements CommandLineRunner {
         mladen.setPhoneNumber("0999999999");
         mladen.setEmail("v@abv.bg");
         mladen.setCreatedAt(Instant.now(Clock.systemUTC()));
-
-        userRepository.saveAll(List.of(dimitar, ivan, petar, mladen));
+        userService.addUser(mladen);
     }
 
     public void createAddresses() {

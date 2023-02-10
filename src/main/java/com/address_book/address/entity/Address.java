@@ -1,14 +1,14 @@
 package com.address_book.address.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
-@Entity (name = "addresses")
+@Entity
+@Table (name = "addresses")
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,4 +21,5 @@ public class Address {
     private String street;
     @Column (name = "street_number")
     private int streetNumber;
+
 }

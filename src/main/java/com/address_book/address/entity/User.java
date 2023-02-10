@@ -1,16 +1,16 @@
 package com.address_book.address.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.Instant;
 
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
-@Entity(name = "users")
+@Entity
+@Table (name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

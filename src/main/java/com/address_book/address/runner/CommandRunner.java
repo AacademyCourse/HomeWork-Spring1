@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.Clock;
 import java.time.Instant;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class CommandRunner implements CommandLineRunner {
         dimitar.setLastName("Enev");
         dimitar.setPhoneNumber("0879385550");
         dimitar.setEmail("dreindead@abv.bg");
-        dimitar.setCreatedAt(Instant.parse("1992-06-05T15:30:24.00Z"));
+        dimitar.setCreatedAt(Instant.now(Clock.systemUTC()));
         userService.addUser(dimitar);
 
         User ivan = new User();
@@ -36,7 +37,7 @@ public class CommandRunner implements CommandLineRunner {
         ivan.setLastName("Malchev");
         ivan.setPhoneNumber("08777777777");
         ivan.setEmail("abv@abv.bg");
-        ivan.setCreatedAt(Instant.parse("1995-07-15T12:35:02.00Z"));
+        ivan.setCreatedAt(Instant.now(Clock.systemUTC()));
         userService.addUser(ivan);
 
         User petar = new User();
@@ -44,7 +45,7 @@ public class CommandRunner implements CommandLineRunner {
         petar.setLastName("Halvadzhiev");
         petar.setPhoneNumber("0888888888");
         petar.setEmail("bv@abv.bg");
-        petar.setCreatedAt(Instant.parse("2002-01-05T18:12:34.00Z"));
+        petar.setCreatedAt(Instant.now(Clock.systemUTC()));
         userService.addUser(petar);
 
         User mladen = new User();
@@ -52,7 +53,7 @@ public class CommandRunner implements CommandLineRunner {
         mladen.setLastName("Karagiozov");
         mladen.setPhoneNumber("0999999999");
         mladen.setEmail("v@abv.bg");
-        mladen.setCreatedAt(Instant.parse("2000-09-25T08:42:14.00Z"));
+        mladen.setCreatedAt(Instant.now(Clock.systemUTC()));
         userService.addUser(mladen);
     }
 

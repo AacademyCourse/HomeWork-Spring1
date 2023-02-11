@@ -3,6 +3,9 @@ package com.address_book.address.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -22,6 +25,6 @@ public class Address {
     @Column (name = "street_number")
     private int streetNumber;
 
-    @ManyToOne
-    private User user;
+    @ManyToMany (mappedBy = "addresses")
+    private Set<User> user = new HashSet<>();
 }

@@ -1,5 +1,6 @@
 package com.address_book.address.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -30,7 +31,8 @@ public class User {
     @Column (name = "email")
     private String email;
 
-    @ManyToMany
+    @ManyToMany (mappedBy = "user")
+    @JsonManagedReference
     @JoinTable(
             name = "user_addresses",
             joinColumns = {@JoinColumn(name = "user_id")},

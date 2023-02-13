@@ -1,5 +1,6 @@
 package com.address_book.address.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,6 +26,7 @@ public class Address {
     @Column (name = "street_number")
     private int streetNumber;
 
-    @ManyToMany (mappedBy = "addresses")
+    @ManyToMany
+    @JsonBackReference
     private Set<User> user = new HashSet<>();
 }

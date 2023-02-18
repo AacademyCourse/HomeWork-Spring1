@@ -21,7 +21,7 @@ public class AddressController {
         return addressService.addAddress(address);
     }
 
-    @PostMapping(path = "/{id}/modify")
+    @PutMapping(path = "/{id}/modify")
     public Address modifyAddress(@PathVariable Long id, @RequestBody Address address) {
         return addressService.modifyAddress(id, address);
     }

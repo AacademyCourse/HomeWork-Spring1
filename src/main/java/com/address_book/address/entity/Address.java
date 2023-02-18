@@ -22,6 +22,6 @@ public class Address {
     @Column (name = "street_number")
     private int streetNumber;
 
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL)
     private User user;
 }

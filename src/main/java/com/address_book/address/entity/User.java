@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -27,4 +29,7 @@ public class User {
     @Column (name = "created_at")
     private Instant createdAt;
 
+    @OneToMany (fetch = FetchType.EAGER, mappedBy = "user")
+    @Column (name = "address_id")
+    private Set<Address> addresses = new HashSet<>();
 }

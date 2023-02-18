@@ -15,17 +15,15 @@ public class RoleService {
     }
 
     public Role getRole(Long id) {
-        Role searchedRole = new Role();
+        Role roleType = new Role();
         if (this.roleRepository.findById(id).isPresent()) {
-            searchedRole = this.roleRepository.findById(id).get();
+            roleType = this.roleRepository.findById(id).get();
         }
-        return searchedRole;
+        return roleType;
     }
 
     public Role addRole(Role role) {
-        Role newRole = new Role();
-        newRole.setRole(role.getRole());
-        return this.roleRepository.save(newRole);
+        return this.roleRepository.save(role);
     }
 
     public void deleteRole(Long id) {

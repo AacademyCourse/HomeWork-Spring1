@@ -1,24 +1,34 @@
 package com.address_book.address.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 @Entity
-@Table (name = "role")
+@Table (name = "roles")
 public class Role {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
+        public enum RoleType {
+               ADMIN,
+               USER,
+               CLIENT
+        }
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long id;
 
-    @Enumerated (value = EnumType.STRING)
-    @Column(name = "role")
-    private RoleType role;
+        @Column (name = "role")
+        @Enumerated (value = EnumType.STRING)
+        private RoleType role;
+
+        @OneToMany (mappedBy = "role", fetch = FetchType.EAGER)
+        @JsonBackReference
+        private Set<User> users = new HashSet<>();
 }

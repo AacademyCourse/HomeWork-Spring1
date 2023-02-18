@@ -1,5 +1,6 @@
 package com.address_book.address.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,6 +11,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 @Entity
 @Table (name = "addresses")
 public class Address {
@@ -25,6 +27,7 @@ public class Address {
     @Column (name = "street_number")
     private int streetNumber;
 
-    @ManyToMany (mappedBy = "addresses")
-    private Set<User> user = new HashSet<>();
+    @ManyToMany (mappedBy = "address", fetch = FetchType.EAGER)
+    @JsonBackReference
+    private Set<User> users = new HashSet<>();
 }

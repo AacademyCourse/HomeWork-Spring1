@@ -8,3 +8,9 @@ spring:
     hibernate:
       ddl-auto: create-drop
     show-sql: true
+    format-sql: true
+  http:
+    mandatory-file-encoding: UTF-8
+    encoding:
+      charset: UTF-8
+      enabled: true

@@ -29,7 +29,7 @@ public class AddressService {
         newAddress.setCity(address.getCity());
         newAddress.setStreet(address.getStreet());
         newAddress.setStreetNumber(address.getStreetNumber());
-        newAddress.setUser(address.getUser());
+        newAddress.setUsers(address.getUsers());
 
         return this.addressRepository.save(newAddress);
     }
@@ -42,7 +42,7 @@ public class AddressService {
         address.setCity(modedAddress.getCity());
         address.setStreet(modedAddress.getStreet());
         address.setStreetNumber(modedAddress.getStreetNumber());
-        address.setUser(modedAddress.getUser());
+        address.setUsers(modedAddress.getUsers());
 
         return this.addressRepository.save(address);
     }

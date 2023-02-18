@@ -25,10 +25,12 @@ public class UserService {
     public User addUser(User user) {
         User newUser = new User();
 
+        newUser.setRole(user.getRole());
         newUser.setFirstName(user.getFirstName());
         newUser.setLastName(user.getLastName());
-        newUser.setEmail(user.getEmail());
         newUser.setPhoneNumber(user.getPhoneNumber());
+        newUser.setEmail(user.getEmail());
+        newUser.setAddress(user.getAddress());
         newUser.setCreatedAt(user.getCreatedAt());
 
         return this.userRepository.save(newUser);
@@ -37,11 +39,12 @@ public class UserService {
     public User modifyUser(Long id, User modedUser) {
         User user = getUser(id);
 
-        user.setId(modedUser.getId());
+        user.setRole(modedUser.getRole());
         user.setFirstName(modedUser.getFirstName());
         user.setLastName(modedUser.getLastName());
-        user.setEmail(modedUser.getEmail());
         user.setPhoneNumber(modedUser.getPhoneNumber());
+        user.setEmail(modedUser.getEmail());
+        user.setAddress(modedUser.getAddress());
         user.setCreatedAt(modedUser.getCreatedAt());
 
         return this.userRepository.save(user);

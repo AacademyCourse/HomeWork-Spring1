@@ -1,12 +1,17 @@
 package com.address_book.address.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 @Entity
 @Table (name = "addresses")
 public class Address {
@@ -22,6 +27,7 @@ public class Address {
     @Column (name = "street_number")
     private int streetNumber;
 
-    @ManyToOne (cascade = CascadeType.ALL)
-    private User user;
+    @ManyToMany (mappedBy = "address", fetch = FetchType.EAGER)
+    @JsonBackReference
+    private Set<User> users = new HashSet<>();
 }

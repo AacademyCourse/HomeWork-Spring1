@@ -21,7 +21,7 @@ public class UserController {
         return userService.addUser(user);
     }
 
-    @PostMapping(path = "/{id}/modify")
+    @PutMapping(path = "/{id}/modify")
     public User modifyUser(@PathVariable Long id, @RequestBody User user) {
         return userService.modifyUser(id, user);
     }

@@ -74,24 +74,28 @@ public class CommandRunner implements CommandLineRunner {
         dimitarAddress.setCity("Varna");
         dimitarAddress.setStreet("Tsar Osvoboditel");
         dimitarAddress.setStreetNumber(253);
+        dimitarAddress.setUser(dimitar);
 
         Address ivanAddress = new Address();
         ivanAddress.setCountry("Bulgaria");
         ivanAddress.setCity("Dobrich");
         ivanAddress.setStreet("Tsar Osvoboditel");
         ivanAddress.setStreetNumber(23);
+        ivanAddress.setUser(ivan);
 
         Address petarAddress = new Address();
         petarAddress.setCountry("Bulgaria");
         petarAddress.setCity("Burgas");
         petarAddress.setStreet("Tsar Kaloyan");
         petarAddress.setStreetNumber(4);
+        petarAddress.setUser(petar);
 
         Address mladenAddress = new Address();
         mladenAddress.setCountry("Romania");
         mladenAddress.setCity("Constanta");
         mladenAddress.setStreet("Decebal");
         mladenAddress.setStreetNumber(34);
+        mladenAddress.setUser(mladen);
 
         dimitarAddress.setUsers(Set.of(dimitar));
         ivanAddress.setUsers(Set.of(ivan));
@@ -118,4 +122,5 @@ public class CommandRunner implements CommandLineRunner {
         userService.addUser(mladen);
         userService.addUser(ivan);
     }
+
 }
